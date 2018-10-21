@@ -18,9 +18,13 @@ app.use(bodyParser.urlencoded({ extended: true })); //
 
 
 var fs = require('fs');
-var obj = JSON.parse(fs.readFileSync('info.json', 'utf8'));
+var what = JSON.parse(fs.readFileSync('what.json', 'utf8'));
+var why = JSON.parse(fs.readFileSync('why.json', 'utf8'));
+var YN = JSON.parse(fs.readFileSync('YN.json', 'utf8'));
+var how = JSON.parse(fs.readFileSync('how.json', 'utf8'));
+var diff = JSON.parse(fs.readFileSync('diff.json', 'utf8'));
 
-console.log('Answer: ' + obj['밥']['강아지']['아침']); //// debugging
+console.log('Answer: ' + what['짜장면']['자장면']['올바']); //// debugging
 
 // app.post('/', function(req, res){
 //   var speech = 
@@ -44,15 +48,28 @@ console.log('Answer: ' + obj['밥']['강아지']['아침']); //// debugging
 app.post('/', function (request, response) {
     console.log('request: \n' + JSON.stringify(request.body));
     //var item = req.body.result.parameters['item'];
-    var what = request.body.queryResult.parameters['what'];
-    var who = request.body.queryResult.parameters['who'];
-    var when = request.body.queryResult.parameters['when'];
+    var XSV = request.body.queryResult.parameters['XSV'];
+    var XR  = request.body.queryResult.parameters['XR'];
+    var VXV = request.body.queryResult.parameters['VXV'];
+    var VV  = request.body.queryResult.parameters['VV'];
+    var VA  = request.body.queryResult.parameters['VA'];
+    var NNP = request.body.queryResult.parameters['NNP'];
+    var NNM = request.body.queryResult.parameters['NNM'];
+    var NNG = request.body.queryResult.parameters['NNG'];
+    var MD  = request.body.queryResult.parameters['MD'];
+    var MAG = request.body.queryResult.parameters['MAG'];
+    var NP  = request.body.queryResult.parameters['NP']; //                  here
     
     let action = (request.body.queryResult.action) ? request.body.queryResult.action: 'default';
     
-    const actionHandlers = {
-        'what.who.when': () => {
-            let responseToUser = { fulfillmentText: obj[what][who][when]};
+    const actionHandlersYN = {
+        'NNG.NNG.NNG': () => {
+            let responseToUser = { fulfillmentText: YN[NNG][NNG][NNG]};
+            sendResponse(responseToUser);
+        },
+
+        'NNG.NNG.VXV': () => {
+            let responseToUser = { fulfillmentText: YN[NNG][NNG][VXV]};
             sendResponse(responseToUser);
         },
         
@@ -62,12 +79,250 @@ app.post('/', function (request, response) {
         }
     };
 
-    if (!actionHandlers[action]) {
-         action = 'default';
+    const actionHandlersWHY = {
+        'NNG.MAG': () => {
+            let responseToUser = { fulfillmentText: why[NNG][MAG]};
+            sendResponse(responseToUser);
+        },
+
+        'MAG.NNG.NNG': () => {
+            let responseToUser = { fulfillmentText: why[MAG][NNG][NNG]};
+            sendResponse(responseToUser);
+        },
+
+        'NNG.NNG.VV': () => {
+            let responseToUser = { fulfillmentText: why[NNG][NNG][VV]};
+            sendResponse(responseToUser);
+        },
+
+        'NNG.NNG': () => {
+            let responseToUser = { fulfillmentText: why[NNG][NNG]};
+            sendResponse(responseToUser);
+        },
+
+        'NNG.NNG.VA.NNG': () => {
+            let responseToUser = { fulfillmentText: why[NNG][NNG][VA][NNG]};
+            sendResponse(responseToUser);
+        },
+
+        'NNG.NNG.NNG.NNG.VA': () => {
+            let responseToUser = { fulfillmentText: why[NNG][NNG][NNG][NNG][VA]};
+            sendResponse(responseToUser);
+        },
+
+        'NNG.NNG.VA': () => {
+            let responseToUser = { fulfillmentText: why[NNG][NNG][VA]};
+            sendResponse(responseToUser);
+        },
+
+        'VA.VV.NNG': () => {
+            let responseToUser = { fulfillmentText: why[VA][VV][NNG]};
+            sendResponse(responseToUser);
+        },
+
+        'NNG.NNG.NNG': () => {
+            let responseToUser = { fulfillmentText: why[NNG][NNG][NNG]};
+            sendResponse(responseToUser);
+        },
+
+        'NNG.VA': () => {
+            let responseToUser = { fulfillmentText: why[NNG][VA]};
+            sendResponse(responseToUser);
+        },
+
+        'MD.NNG.NNG': () => {
+            let responseToUser = { fulfillmentText: why[MD][NNG][NNG]};
+            sendResponse(responseToUser);
+        },
+
+        'NNG.NNG.NNG.VV': () => {
+            let responseToUser = { fulfillmentText: why[NNG][NNG][NNG][VV]};
+            sendResponse(responseToUser);
+        },
+
+        'NNG.VV.NNG': () => {
+            let responseToUser = { fulfillmentText: why[NNG][VV][NNG]};
+            sendResponse(responseToUser);
+        },
+
+        'NNG.NNG.MAG': () => {
+            let responseToUser = { fulfillmentText: why[NNG][NNG][MAG]};
+            sendResponse(responseToUser);
+        },
+
+        'NNG.VV': () => {
+            let responseToUser = { fulfillmentText: why[NNG][VV]};
+            sendResponse(responseToUser);
+        },
+
+        'NNG.NNG.VXV': () => {
+            let responseToUser = { fulfillmentText: why[NNG][NNG][VXV]};
+            sendResponse(responseToUser);
+        },
+
+        'NNG.NNG.NNG.VA': () => {
+            let responseToUser = { fulfillmentText: why[NNG][NNG][NNG][VA]};
+            sendResponse(responseToUser);
+        },
+
+        'NNG.VA.NNG.NNG.NNG': () => {
+            let responseToUser = { fulfillmentText: why[NNG][VA][NNG][NNG][NNG]};
+            sendResponse(responseToUser);
+        },
+
+        'XR.NNG.VV': () => {
+            let responseToUser = { fulfillmentText: why[XR][NNG][VV]};
+            sendResponse(responseToUser);
+        },
+        
+        'default': () => {
+            let responseToUser = { fulfillmentText: '0' };
+            sendResponse(responseToUser);
+        }
+    };
+    
+    const actionHandlersWHAT = {
+        'NNG.NNG.VA': () => {
+            let responseToUser = { fulfillmentText: what[NNG][NNG][VA]};
+            sendResponse(responseToUser);
+        },
+
+        'NNG.NNG.NNG': () => {
+            let responseToUser = { fulfillmentText: what[NNG][NNG][NNG]};
+            sendResponse(responseToUser);
+        },
+
+        'NNG.NNG.NNG.NP': () => {
+            let responseToUser = { fulfillmentText: what[NNG][NNG][NNG][NP]};
+            sendResponse(responseToUser);
+        },
+
+        'NNP.NNG.VV': () => {
+            let responseToUser = { fulfillmentText: what[NNP][NNG][VV]};
+            sendResponse(responseToUser);
+        },
+
+        'NNG.NNG': () => {
+            let responseToUser = { fulfillmentText: what[NNG][NNG]};
+            sendResponse(responseToUser);
+        },
+
+        'NNG.MAG.NNG.NNG': () => {
+            let responseToUser = { fulfillmentText: what[NNG][MAG][NNG][NNG]};
+            sendResponse(responseToUser);
+        },
+
+        'NNG.NNG.MAG.NNG': () => {
+            let responseToUser = { fulfillmentText: what[NNG][NNG][MAG][NNG]};
+            sendResponse(responseToUser);
+        },
+        
+        'default': () => {
+            let responseToUser = { fulfillmentText: '0' };
+            sendResponse(responseToUser);
+        }
+    };
+    
+    const actionHandlersHOW = {
+        'NNG.NNG': () => {
+            let responseToUser = { fulfillmentText: how[NNG][NNG]};
+            sendResponse(responseToUser);
+        },
+
+        'NNG.NNG.VA.NNG': () => {
+            let responseToUser = { fulfillmentText: how[NNG][NNG][VA][NNG]};
+            sendResponse(responseToUser);
+        },
+
+        'NNG.VV': () => {
+            let responseToUser = { fulfillmentText: how[NNG][VV]};
+            sendResponse(responseToUser);
+        },
+
+        'NNG.VA.VV': () => {
+            let responseToUser = { fulfillmentText: how[NNG][VA][VV]};
+            sendResponse(responseToUser);
+        },
+
+        'NNG.VV.MAG.VV': () => {
+            let responseToUser = { fulfillmentText: how[NNG][VV][MAG][VV]};
+            sendResponse(responseToUser);
+        },
+
+        'NNG.VV.VV': () => {
+            let responseToUser = { fulfillmentText: how[NNG][VV][VV]};
+            sendResponse(responseToUser);
+        },
+
+        'NNG.NNG.VV': () => {
+            let responseToUser = { fulfillmentText: how[NNG][NNG][VV]};
+            sendResponse(responseToUser);
+        },
+
+        'NNG.NNG.NNG': () => {
+            let responseToUser = { fulfillmentText: how[NNG][NNG][NNG]};
+            sendResponse(responseToUser);
+        },
+
+        'NNG.NNG.NNG.NNG': () => {
+            let responseToUser = { fulfillmentText: how[NNG][NNG][NNG][NNG]};
+            sendResponse(responseToUser);
+        },
+
+        'NNG.MAG': () => {
+            let responseToUser = { fulfillmentText: how[NNG][MAG]};
+            sendResponse(responseToUser);
+        },
+        
+        'default': () => {
+            let responseToUser = { fulfillmentText: '0' };
+            sendResponse(responseToUser);
+        }
+    };
+    
+    const actionHandlersDIFF = {
+        'NNG.NNG': () => {
+            let responseToUser = { fulfillmentText: diff[NNG][NNG]};
+            sendResponse(responseToUser);
+        },
+
+        'NNP.NNP': () => {
+            let responseToUser = { fulfillmentText: diff[NNP][NNP]};
+            sendResponse(responseToUser);
+        },
+
+        'NNG.NNG.NNG.NNG': () => {
+            let responseToUser = { fulfillmentText: diff[NNG][NNG][NNG][NNG]};
+            sendResponse(responseToUser);
+        },
+        
+        'default': () => {
+            let responseToUser = { fulfillmentText: '0' };
+            sendResponse(responseToUser);
+        }
+    };
+    
+    
+    if (actionHandlerYN[action]) {
+      actionHandlerYN[action]
     }
-
-    actionHandlers[action]();
-
+    else(actionHandlerWHY[action]){
+      actionHandlerWHY[action]
+    }
+    else(actionHandlerWHAY[action]){
+      actionHandlerWHAY[action]
+    }
+    else(actionHandlerHOW[action]){
+      actionHandlerHOW[action]
+    }
+    else(actionHandlerDIFF[action]){
+      actionHandlerDIFF[action]
+    }
+    else(){
+      action = 'default';
+    actionHandlersYN[action]();
+    }
+    
     function sendResponse(responseToUser) {
         if (typeof responseToUser === 'string') {
             let responseJson = { fulfillmentText: responseToUser };
