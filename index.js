@@ -101,6 +101,12 @@ app.post('/', function (request, response) {
         }
     };
     
+    if (!actionHandlers[action]) {
+         action = 'default';
+    }
+
+    actionHandlers[action]();
+    
     function sendResponse(responseToUser) {
         if (typeof responseToUser === 'string') {
             let responseJson = { fulfillmentText: responseToUser };
