@@ -62,7 +62,9 @@ app.post('/', function (request, response) {
     
     let action = (request.body.queryResult.action) ? request.body.queryResult.action: 'default';
     
-    const actionHandlersYN = {
+    
+    
+    const actionHandlers = {
         'NNG.NNG.NNG': () => {
             let responseToUser = { fulfillmentText: YN[NNG][NNG][NNG]};
             sendResponse(responseToUser);
@@ -73,13 +75,6 @@ app.post('/', function (request, response) {
             sendResponse(responseToUser);
         },
         
-        'default': () => {
-            let responseToUser = { fulfillmentText: '0' };
-            sendResponse(responseToUser);
-        }
-    };
-
-    const actionHandlersWHY = {
         'NNG.MAG': () => {
             let responseToUser = { fulfillmentText: why[NNG][MAG]};
             sendResponse(responseToUser);
@@ -175,13 +170,6 @@ app.post('/', function (request, response) {
             sendResponse(responseToUser);
         },
         
-        'default': () => {
-            let responseToUser = { fulfillmentText: '0' };
-            sendResponse(responseToUser);
-        }
-    };
-    
-    const actionHandlersWHAT = {
         'NNG.NNG.VA': () => {
             let responseToUser = { fulfillmentText: what[NNG][NNG][VA]};
             sendResponse(responseToUser);
@@ -217,13 +205,6 @@ app.post('/', function (request, response) {
             sendResponse(responseToUser);
         },
         
-        'default': () => {
-            let responseToUser = { fulfillmentText: '0' };
-            sendResponse(responseToUser);
-        }
-    };
-    
-    const actionHandlersHOW = {
         'NNG.NNG': () => {
             let responseToUser = { fulfillmentText: how[NNG][NNG]};
             sendResponse(responseToUser);
@@ -274,13 +255,6 @@ app.post('/', function (request, response) {
             sendResponse(responseToUser);
         },
         
-        'default': () => {
-            let responseToUser = { fulfillmentText: '0' };
-            sendResponse(responseToUser);
-        }
-    };
-    
-    const actionHandlersDIFF = {
         'NNG.NNG': () => {
             let responseToUser = { fulfillmentText: diff[NNG][NNG]};
             sendResponse(responseToUser);
@@ -301,27 +275,12 @@ app.post('/', function (request, response) {
             sendResponse(responseToUser);
         }
     };
-    
-    
-    if (actionHandlerYN[action]) {
-      actionHandlerYN[action]
+
+    if (!actionHandlers[action]) {
+         action = 'default';
     }
-    else(actionHandlerWHY[action]){
-      actionHandlerWHY[action]
-    }
-    else(actionHandlerWHAY[action]){
-      actionHandlerWHAY[action]
-    }
-    else(actionHandlerHOW[action]){
-      actionHandlerHOW[action]
-    }
-    else(actionHandlerDIFF[action]){
-      actionHandlerDIFF[action]
-    }
-    else(){
-      action = 'default';
-    actionHandlersYN[action]();
-    }
+
+    actionHandlers[action]();
     
     function sendResponse(responseToUser) {
         if (typeof responseToUser === 'string') {
