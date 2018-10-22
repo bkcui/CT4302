@@ -26,7 +26,7 @@ var how = JSON.parse(fs.readFileSync('how.json', 'utf8'));
 var how_neg = JSON.parse(fs.readFileSync('how_neg.json', 'utf8'));
 var diff = JSON.parse(fs.readFileSync('diff.json', 'utf8'));
 
-console.log('Answer: ' + what['짜장면']['자장면']['올바']); //// debugging
+console.log('Answer: ' + diff['팝콘']['강냉이']); //// debugging
 
 // app.post('/', function(req, res){
 //   var speech = 
