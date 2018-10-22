@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({ extended: true })); //
 var fs = require('fs');
 var what = JSON.parse(fs.readFileSync('what.json', 'utf8'));
 var why = JSON.parse(fs.readFileSync('why.json', 'utf8'));
-var YN = JSON.parse(fs.readFileSync('YN.json', 'utf8'));
+var yno = JSON.parse(fs.readFileSync('YN.json', 'utf8'));
 var how = JSON.parse(fs.readFileSync('how.json', 'utf8'));
 var diff = JSON.parse(fs.readFileSync('diff.json', 'utf8'));
 
@@ -66,12 +66,12 @@ app.post('/', function (request, response) {
     
     const actionHandlers = {
         'NNG.NNG.NNG': () => {
-            let responseToUser = { fulfillmentText: YN[NNG][NNG][NNG]};
+            let responseToUser = { fulfillmentText: yno[NNG][NNG][NNG]};
             sendResponse(responseToUser);
         },
 
         'NNG.NNG.VXV': () => {
-            let responseToUser = { fulfillmentText: YN[NNG][NNG][VXV]};
+            let responseToUser = { fulfillmentText: yno[NNG][NNG][VXV]};
             sendResponse(responseToUser);
         },
         
