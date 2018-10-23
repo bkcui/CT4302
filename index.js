@@ -60,12 +60,15 @@ app.post('/', function (request, response) {
     
     let action = (request.body.result.action) ? request.body.result.action: 'default';
 
+    function (action){
     if(JSON.stringify(action) == '"diff"'){
     console.log('action == diff: \n');
     var NNG = request.body.queryResult.parameters['NNG'];
     var NNG1 = request.body.queryResult.parameters['NNG1'];
-    }
+    console.log('NNG : \n'+NNG);
+    }}
     
+    console.log('NNG : \n'+NNG);
     
     const actionHandlers = {
         'diff': () => {
