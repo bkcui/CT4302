@@ -108,23 +108,23 @@ app.post('/', function (request, response) {
     
       console.log('NNG: \n' + JSON.stringify(NNG));
     if(Array.isArray(NNG)){
-      NNG = NNG.join().replace(/"/g, "");
+      NNG = NNG.join().replace(/"|\s/g, "");
       console.log('NNG: \n' + JSON.stringify(NNG));
     }
     if(Array.isArray(NNG1)){
-      NNG1 = NNG1.join().replace(/"/g, "");
+      NNG1 = NNG1.join().replace(/"|\s/g, "");
     }
     if(Array.isArray(VXV)){
-      VXV = VXV.join().replace(/"/g, "");
+      VXV = VXV.join().replace(/"|\s/g, "");
     }
     if(Array.isArray(VV)){
-      VV = VV.join().replace(/"/g, "");
+      VV = VV.join().replace(/"|\s/g, "");
     }
     if(Array.isArray(MAG)){
-      MAG = MAG.join().replace(/"/g, "");
+      MAG = MAG.join().replace(/"|\s/g, "");
     }
     if(Array.isArray(NP)){
-      NP = NP.join().replace(/"/g, "");
+      NP = NP.join().replace(/"|\s/g, "");
     }
     
     
