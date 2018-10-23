@@ -73,9 +73,9 @@ app.post('/', function (request, response) {
       NNG = request.body.result.parameters['NNG'];
       NNG1 = request.body.result.parameters['NNG1'];
       NP = request.body.result.parameters['NP'];
-    NNG = JSON.stringify(NNG).replace(/[|]|"|\s/g, "");
-    NNG1 = JSON.stringify(NNG1).replace(/[|]|"|\s/g, "");
-    NP = JSON.stringify(NP).replace(/[|]|"|\s/g, "");
+    NNG = JSON.stringify(NNG).replace(/\[|\]|"|\s/g, "");
+    NNG1 = JSON.stringify(NNG1).replace(/\[|\]|"|\s/g, "");
+    NP = JSON.stringify(NP).replace(/\[|\]|"|\s/g, "");
     console.log('NNG: \n' + NNG);
     console.log('NNG1: \n' + NNG1);
     console.log('NP: \n' + NP);
