@@ -107,6 +107,7 @@ app.post('/', function (request, response) {
       }
     
     console.log('NNG: \n' + JSON.stringify(NNG) + typeof(JSON.stringify(NNG)));
+    console.log('NP: \n' + NP + typeof(NP));
     NNG = JSON.stringify(NNG).join().replace(/"|\s/g, "");
     if(Array.isArray(NNG)){
       NNG = NNG.join().replace(/"|\s/g, "");
