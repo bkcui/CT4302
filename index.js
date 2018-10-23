@@ -59,7 +59,9 @@ app.post('/', function (request, response) {
     //var NP  = request.body.queryResult.parameters['NP']; //                  here
     
     let action = (request.body.queryResult.action) ? request.body.queryResult.action: 'default';
-    if(action == 'diff'){
+
+    console.log('action: \n' + JSON.stringify(action));
+    if(JSON.stringify(action) == 'diff'){
     var NNG = request.body.queryResult.parameters['NNG'];
     var NNG1 = request.body.queryResult.parameters['NNG1'];
     }
