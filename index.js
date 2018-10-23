@@ -76,9 +76,9 @@ app.post('/', function (request, response) {
     NNG = JSON.stringify(NNG).replace(/[|]|\s/g, "");
     NNG1 = JSON.stringify(NNG1).replace(/[|]|\s/g, "");
     NP = JSON.stringify(NP).replace(/[|]|\s/g, "");
-    NNG = JSON.stringify(NNG).replace(/[|]|\s/g, ",");
-    NNG1 = JSON.stringify(NNG1).replace(/[|]|\s/g, ",");
-    NP = JSON.stringify(NP).replace(/[|]|\s/g, ",");
+    NNG = JSON.stringify(NNG).replace(/","/g, ",");
+    NNG1 = JSON.stringify(NNG1).replace(/","/g, ",");
+    NP = JSON.stringify(NP).replace(/","/g, ",");
       }
     if(JSON.stringify(action) == '"why"'){
       console.log('action == why: \n');
