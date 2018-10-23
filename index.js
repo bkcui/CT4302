@@ -58,7 +58,7 @@ app.post('/', function (request, response) {
     //var MAG = request.body.queryResult.parameters['MAG'];
     //var NP  = request.body.queryResult.parameters['NP']; //                  here
     
-    let action = (request.body.queryResult.action) ? request.body.queryResult.action: 'default';
+    let action = (request.body.result.action) ? request.body.result.action: 'default';
 
     console.log('action: \n' + JSON.stringify(action));
     if(JSON.stringify(action) == 'diff'){
