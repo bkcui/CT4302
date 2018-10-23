@@ -65,17 +65,20 @@ app.post('/', function (request, response) {
       console.log('action == diff: \n');
       NNG = request.body.result.parameters['NNG'];
       NNG1 = request.body.result.parameters['NNG1'];
-    NNG = JSON.stringify(NNG).replace(/[|]|"|\s/g, "");
-    NNG1 = JSON.stringify(NNG1).replace(/[|]|"|\s/g, "");
+    NNG = JSON.stringify(NNG).replace(/[|]|","|\s/g, "");
+    NNG1 = JSON.stringify(NNG1).replace(/[|]|","|\s/g, "");
       }
     if(JSON.stringify(action) == '"what"'){
       console.log('action == what: \n');
       NNG = request.body.result.parameters['NNG'];
       NNG1 = request.body.result.parameters['NNG1'];
       NP = request.body.result.parameters['NP'];
-    NNG = JSON.stringify(NNG).replace(/[|]|"|\s/g, "");
-    NNG1 = JSON.stringify(NNG1).replace(/[|]|"|\s/g, "");
-    NP = JSON.stringify(NP).replace(/[|]|"|\s/g, "");
+    NNG = JSON.stringify(NNG).replace(/[|]|\s/g, "");
+    NNG1 = JSON.stringify(NNG1).replace(/[|]|\s/g, "");
+    NP = JSON.stringify(NP).replace(/[|]|\s/g, "");
+    NNG = JSON.stringify(NNG).replace(/[|]|\s/g, ",");
+    NNG1 = JSON.stringify(NNG1).replace(/[|]|\s/g, ",");
+    NP = JSON.stringify(NP).replace(/[|]|\s/g, ",");
       }
     if(JSON.stringify(action) == '"why"'){
       console.log('action == why: \n');
@@ -83,10 +86,10 @@ app.post('/', function (request, response) {
       MAG = request.body.result.parameters['MAG'];
       NNG1 = request.body.result.parameters['NNG1'];
       VV = request.body.result.parameters['VV'];
-    NNG = JSON.stringify(NNG).replace(/[|]|"|\s/g, "");
-    NNG1 = JSON.stringify(NNG1).replace(/[|]|"|\s/g, "");
-    VV = JSON.stringify(VV).replace(/[|]|"|\s/g, "");
-    MAG = JSON.stringify(MAG).replace(/[|]|"|\s/g, "");
+    NNG = JSON.stringify(NNG).replace(/[|]|","|\s/g, "");
+    NNG1 = JSON.stringify(NNG1).replace(/[|]|","|\s/g, "");
+    VV = JSON.stringify(VV).replace(/[|]|","|\s/g, "");
+    MAG = JSON.stringify(MAG).replace(/[|]|","|\s/g, "");
       }
     if(JSON.stringify(action) == '"why_neg"'){
       console.log('action == why_neg: \n');
@@ -95,44 +98,44 @@ app.post('/', function (request, response) {
       NNG1 = request.body.result.parameters['NNG1'];
       VV = request.body.result.parameters['VV'];
       VXV = request.body.result.parameters['VXV'];
-    NNG = JSON.stringify(NNG).replace(/[|]|"|\s/g, "");
-    NNG1 = JSON.stringify(NNG1).replace(/[|]|"|\s/g, "");
-    VV = JSON.stringify(VV).replace(/[|]|"|\s/g, "");
-    MAG = JSON.stringify(MAG).replace(/[|]|"|\s/g, "");
-    VXV = JSON.stringify(VXV).replace(/[|]|"|\s/g, "");
+    NNG = JSON.stringify(NNG).replace(/[|]|","|\s/g, "");
+    NNG1 = JSON.stringify(NNG1).replace(/[|]|","|\s/g, "");
+    VV = JSON.stringify(VV).replace(/[|]|","|\s/g, "");
+    MAG = JSON.stringify(MAG).replace(/[|]|","|\s/g, "");
+    VXV = JSON.stringify(VXV).replace(/[|]|","|\s/g, "");
       }
     if(JSON.stringify(action) == '"how"'){
       console.log('action == how: \n');
       NNG = request.body.result.parameters['NNG'];
       VV = request.body.result.parameters['VV'];
-    NNG = JSON.stringify(NNG).replace(/[|]|"|\s/g, "");
-    VV = JSON.stringify(VV).replace(/[|]|"|\s/g, "");
+    NNG = JSON.stringify(NNG).replace(/[|]|","|\s/g, "");
+    VV = JSON.stringify(VV).replace(/[|]|","|\s/g, "");
       }
     if(JSON.stringify(action) == '"how_neg"'){
       console.log('action == how_neg: \n');
       NNG = request.body.result.parameters['NNG'];
       VV = request.body.result.parameters['VV'];
       VXV = request.body.result.parameters['VXV'];
-    NNG = JSON.stringify(NNG).replace(/[|]|"|\s/g, "");
-    VV = JSON.stringify(VV).replace(/[|]|"|\s/g, "");
-    VXV = JSON.stringify(VXV).replace(/[|]|"|\s/g, "");
+    NNG = JSON.stringify(NNG).replace(/[|]|","|\s/g, "");
+    VV = JSON.stringify(VV).replace(/[|]|","|\s/g, "");
+    VXV = JSON.stringify(VXV).replace(/[|]|","|\s/g, "");
       }
     if(JSON.stringify(action) == '"YN"'){
       console.log('action == YN: \n');
       NNG = request.body.result.parameters['NNG'];
       NNG1 = request.body.result.parameters['NNG1'];
       VV = request.body.result.parameters['VV'];
-    NNG = JSON.stringify(NNG).replace(/[|]|"|\s/g, "");
-    NNG1 = JSON.stringify(NNG1).replace(/[|]|"|\s/g, "");
-    VV = JSON.stringify(VV).replace(/[|]|"|\s/g, "");
+    NNG = JSON.stringify(NNG).replace(/[|]|","|\s/g, "");
+    NNG1 = JSON.stringify(NNG1).replace(/[|]|","|\s/g, "");
+    VV = JSON.stringify(VV).replace(/[|]|","|\s/g, "");
       }
     
-    //NNG = JSON.stringify(NNG).replace(/[|]|"|\s/g, "");
-    //NNG1 = JSON.stringify(NNG1).replace(/[|]|"|\s/g, "");
-    //VXV = JSON.stringify(VXV).replace(/[|]|"|\s/g, "");
-    //VV = JSON.stringify(VV).replace(/[|]|"|\s/g, "");
-    //MAG = JSON.stringify(MAG).replace(/[|]|"|\s/g, "");
-    //NP = JSON.stringify(NP).replace(/[|]|"|\s/g, "");
+    //NNG = JSON.stringify(NNG).replace(/[|]|","|\s/g, "");
+    //NNG1 = JSON.stringify(NNG1).replace(/[|]|","|\s/g, "");
+    //VXV = JSON.stringify(VXV).replace(/[|]|","|\s/g, "");
+    //VV = JSON.stringify(VV).replace(/[|]|","|\s/g, "");
+    //MAG = JSON.stringify(MAG).replace(/[|]|","|\s/g, "");
+    //NP = JSON.stringify(NP).replace(/[|]|","|\s/g, "");
     
     
     
