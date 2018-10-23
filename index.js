@@ -66,20 +66,20 @@ app.post('/', function (request, response) {
       NNG = request.body.result.parameters['NNG'];
       NNG1 = request.body.result.parameters['NNG1'];
       }
-    else(JSON.stringify(action) == '"what"'){
+    else if(JSON.stringify(action) == '"what"'){
       console.log('action == what: \n');
       NNG = request.body.result.parameters['NNG'];
       NNG1 = request.body.result.parameters['NNG1'];
       NP = request.body.result.parameters['NP'];
       }
-    else(JSON.stringify(action) == '"why"'){
+    else if(JSON.stringify(action) == '"why"'){
       console.log('action == why: \n');
       NNG = request.body.result.parameters['NNG'];
       MAG = request.body.result.parameters['MAG'];
       NNG1 = request.body.result.parameters['NNG1'];
       VV = request.body.result.parameters['VV'];
       }
-    else(JSON.stringify(action) == '"why_neg"'){
+    else if(JSON.stringify(action) == '"why_neg"'){
       console.log('action == why_neg: \n');
       NNG = request.body.result.parameters['NNG'];
       MAG = request.body.result.parameters['MAG'];
@@ -87,18 +87,18 @@ app.post('/', function (request, response) {
       VV = request.body.result.parameters['VV'];
       VXV = request.body.result.parameters['VXV'];
       }
-    else(JSON.stringify(action) == '"how"'){
+    else if(JSON.stringify(action) == '"how"'){
       console.log('action == how: \n');
       NNG = request.body.result.parameters['NNG'];
       VV = request.body.result.parameters['VV'];
       }
-    else(JSON.stringify(action) == '"how_neg"'){
+    else if(JSON.stringify(action) == '"how_neg"'){
       console.log('action == how_neg: \n');
       NNG = request.body.result.parameters['NNG'];
       VV = request.body.result.parameters['VV'];
       VXV = request.body.result.parameters['VXV'];
       }
-    else(JSON.stringify(action) == '"YN"'){
+    else if(JSON.stringify(action) == '"YN"'){
       console.log('action == YN: \n');
       NNG = request.body.result.parameters['NNG'];
       NNG1 = request.body.result.parameters['NNG1'];
