@@ -63,6 +63,7 @@ app.post('/', function (request, response) {
 
     if(JSON.stringify(action) == '"diff"'){
       console.log('action == diff: \n');
+      Array.isArray()
       NNG = request.body.result.parameters['NNG'];
       NNG1 = request.body.result.parameters['NNG1'];
       }
@@ -104,6 +105,28 @@ app.post('/', function (request, response) {
       NNG1 = request.body.result.parameters['NNG1'];
       VV = request.body.result.parameters['VV'];
       }
+    
+      console.log('NNG: \n' + JSON.stringify(NNG));
+    if(Array.isArray(NNG)){
+      NNG = NNG.join().replace(/"/g, "");
+      console.log('NNG: \n' + JSON.stringify(NNG));
+    }
+    if(Array.isArray(NNG1)){
+      NNG1 = NNG1.join().replace(/"/g, "");
+    }
+    if(Array.isArray(VXV)){
+      VXV = VXV.join().replace(/"/g, "");
+    }
+    if(Array.isArray(VV)){
+      VV = VV.join().replace(/"/g, "");
+    }
+    if(Array.isArray(MAG)){
+      MAG = MAG.join().replace(/"/g, "");
+    }
+    if(Array.isArray(NP)){
+      NP = NP.join().replace(/"/g, "");
+    }
+    
     
     
     const actionHandlers = {
@@ -147,6 +170,8 @@ app.post('/', function (request, response) {
     }
 
     actionHandlers[action]();
+    
+    console.log('response: \n' + JSON.stringify(responseToUser.body));
     
     function sendResponse(responseToUser) {
         if (typeof responseToUser === 'string') {
