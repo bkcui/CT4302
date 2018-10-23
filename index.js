@@ -62,8 +62,8 @@ app.post('/', function (request, response) {
 
     if(JSON.stringify(action) == '"diff"'){
     console.log('action == diff: \n');
-      NNG = request.body.queryResult.parameters['NNG'];
-      NNG1 = request.body.queryResult.parameters['NNG1'];
+    var NNG = request.body.queryResult.parameters['NNG'];
+    var NNG1 = request.body.queryResult.parameters['NNG1'];
     }
     
     
