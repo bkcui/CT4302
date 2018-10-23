@@ -67,7 +67,7 @@ app.post('/', function (request, response) {
       NNG = request.body.result.parameters['NNG'];
       NNG1 = request.body.result.parameters['NNG1'];
       }
-    else if(JSON.stringify(action) == '"what"'){
+    else if(JSON.stringify(action) == 'what'){
       console.log('action == what: \n');
       NNG = request.body.result.parameters['NNG'];
       NNG1 = request.body.result.parameters['NNG1'];
