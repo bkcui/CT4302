@@ -26,7 +26,7 @@ var how = JSON.parse(fs.readFileSync('how.json', 'utf8'));
 var how_neg = JSON.parse(fs.readFileSync('how_neg.json', 'utf8'));
 var diff = JSON.parse(fs.readFileSync('diff.json', 'utf8'));
 
-console.log('Answer: ' + YN['북극,남극']['먼저,발견'][됐나]); //// debugging
+console.log('Answer: ' + yno['북극,남극']['먼저,발견'][됐나]); //// debugging
 
 // app.post('/', function(req, res){
 //   var speech = 
