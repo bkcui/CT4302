@@ -106,7 +106,8 @@ app.post('/', function (request, response) {
       VV = request.body.result.parameters['VV'];
       }
     
-      console.log('NNG: \n' + typeof(NNG));
+    console.log('NNG: \n' + typeof(NNG));
+    NNG = NNG.join().replace(/"|\s/g, "");
     if(Array.isArray(NNG)){
       NNG = NNG.join().replace(/"|\s/g, "");
       console.log('NNG: \n' + JSON.stringify(NNG));
