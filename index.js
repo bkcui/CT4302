@@ -26,7 +26,7 @@ var how = JSON.parse(fs.readFileSync('how.json', 'utf8'));
 var how_neg = JSON.parse(fs.readFileSync('how_neg.json', 'utf8'));
 var diff = JSON.parse(fs.readFileSync('diff.json', 'utf8'));
 
-console.log('Answer: ' + diff['팝콘']['강냉이']); //// debugging
+console.log('Answer: ' + YN['북극,남극']['먼저,발견'][됐나]); //// debugging
 
 // app.post('/', function(req, res){
 //   var speech = 
@@ -106,7 +106,7 @@ app.post('/', function (request, response) {
       VV = request.body.result.parameters['VV'];
       }
     
-      console.log('NNG: \n' + tpyeof(NNG));
+      console.log('NNG: \n' + typeof(NNG));
     if(Array.isArray(NNG)){
       NNG = NNG.join().replace(/"|\s/g, "");
       console.log('NNG: \n' + JSON.stringify(NNG));
