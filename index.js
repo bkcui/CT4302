@@ -51,20 +51,19 @@ app.post('/', function (request, response) {
     console.log('request: \n' + JSON.stringify(request.body));
     //var item = req.body.result.parameters['item'];
     
-    //var NNG = request.body.queryResult.parameters['NNG'];
-    //var NNG1 = request.body.queryResult.parameters['NNG1'];
-    //var VXV = request.body.queryResult.parameters['VXV'];
-    //var VV  = request.body.queryResult.parameters['VV'];
-    //var MAG = request.body.queryResult.parameters['MAG'];
-    //var NP  = request.body.queryResult.parameters['NP']; //                  here
+    var NNG// = request.body.queryResult.parameters['NNG'];
+    var NNG1// = request.body.queryResult.parameters['NNG1'];
+    var VXV// = request.body.queryResult.parameters['VXV'];
+    var VV//  = request.body.queryResult.parameters['VV'];
+    var MAG// = request.body.queryResult.parameters['MAG'];
+    var NP//  = request.body.queryResult.parameters['NP']; //                  here
     
     let action = (request.body.result.action) ? request.body.result.action: 'default';
 
-    if(JSON.stringify(action) == "diff"){
+    if(JSON.stringify(action) == '"diff"'){
     console.log('action == diff: \n');
-      "use strict"
-      var NNG = request.body.queryResult.parameters['NNG'];
-      var NNG1 = request.body.queryResult.parameters['NNG1'];
+      NNG = request.body.queryResult.parameters['NNG'];
+      NNG1 = request.body.queryResult.parameters['NNG1'];
     }
     
     
