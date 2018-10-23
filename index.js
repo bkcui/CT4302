@@ -50,20 +50,20 @@ console.log('Answer: ' + diff['팝콘']['강냉이']); //// debugging
 app.post('/', function (request, response) {
     console.log('request: \n' + JSON.stringify(request.body));
     //var item = req.body.result.parameters['item'];
-    var XSV = request.body.queryResult.parameters['XSV'];
-    var XR  = request.body.queryResult.parameters['XR'];
-    var VXV = request.body.queryResult.parameters['VXV'];
-    var VV  = request.body.queryResult.parameters['VV'];
-    var VA  = request.body.queryResult.parameters['VA'];
-    var NNP = request.body.queryResult.parameters['NNP'];
-    var NNM = request.body.queryResult.parameters['NNM'];
-    var NNG = request.body.queryResult.parameters['NNG'];
-    var NNG1 = request.body.queryResult.parameters['NNG1'];
-    var MD  = request.body.queryResult.parameters['MD'];
-    var MAG = request.body.queryResult.parameters['MAG'];
-    var NP  = request.body.queryResult.parameters['NP']; //                  here
+    
+    //var NNG = request.body.queryResult.parameters['NNG'];
+    //var NNG1 = request.body.queryResult.parameters['NNG1'];
+    //var VXV = request.body.queryResult.parameters['VXV'];
+    //var VV  = request.body.queryResult.parameters['VV'];
+    //var MAG = request.body.queryResult.parameters['MAG'];
+    //var NP  = request.body.queryResult.parameters['NP']; //                  here
     
     let action = (request.body.queryResult.action) ? request.body.queryResult.action: 'default';
+    if(action == 'diff'){
+    var NNG = request.body.queryResult.parameters['NNG'];
+    var NNG1 = request.body.queryResult.parameters['NNG1'];
+    }
+    
     
     const actionHandlers = {
         'diff': () => {
