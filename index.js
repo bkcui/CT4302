@@ -60,7 +60,6 @@ app.post('/', function (request, response) {
     
     let action = (request.body.result.action) ? request.body.result.action: 'default';
 
-
     if(JSON.stringify(action) == '"diff"'){
       console.log('action == diff: \n');
       NNG = request.body.result.parameters['NNG'];
@@ -125,7 +124,8 @@ app.post('/', function (request, response) {
     NNG = JSON.stringify(NNG).replace(/\[|\]|"|\s/g, "");
     NNG1 = JSON.stringify(NNG1).replace(/\[|\]|"|\s/g, "");
     VV = JSON.stringify(VV).replace(/\[|\]|"|\s/g, "");
-      }
+    }
+    
     
     //NNG = JSON.stringify(NNG).replace(/\[|\]|"|\s/g, "");
     //NNG1 = JSON.stringify(NNG1).replace(/\[|\]|"|\s/g, "");
@@ -172,12 +172,18 @@ app.post('/', function (request, response) {
         }
     };
     
+    
     if (!actionHandlers[action]) {
          action = 'default';
     }
 
+    try{
     actionHandlers[action]();
-    
+    }
+    catch(err) {
+        let responseToUser = { fulfillmentText: '0' };
+        sendResponse(responseToUser);
+    }
     
     function sendResponse(responseToUser) {
         if (typeof responseToUser === 'string') {
