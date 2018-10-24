@@ -138,36 +138,36 @@ app.post('/', function (request, response) {
     
     const actionHandlers = {
         'diff': () => {
-            let responseToUser = { fulfillmentText: diff[NNG][NNG1]};
+            let responseToUser = { speech: diff[NNG][NNG1]};
             sendResponse(responseToUser);
         },
         'how': () => {
-            let responseToUser = { fulfillmentText: how[NNG][VV]};
+            let responseToUser = { speech: how[NNG][VV]};
             sendResponse(responseToUser);
         },
         'how_neg': () => {
-            let responseToUser = { fulfillmentText: how_neg[NNG][VV][VXV]};
+            let responseToUser = { speech: how_neg[NNG][VV][VXV]};
             sendResponse(responseToUser);
         },
         'what': () => {
-            let responseToUser = { fulfillmentText: what[NNG][NNG1][NP]};
+            let responseToUser = { speech: what[NNG][NNG1][NP]};
             sendResponse(responseToUser);
         },
         'why': () => {
-            let responseToUser = { fulfillmentText: why[NNG][MAG][NNG1]};
+            let responseToUser = { speech: why[NNG][MAG][NNG1]};
             sendResponse(responseToUser);
         },
         'why_neg': () => {
-            let responseToUser = { fulfillmentText: why_neg[NNG][MAG][NNG1][VV][VXV]};
+            let responseToUser = { speech: why_neg[NNG][MAG][NNG1][VV][VXV]};
             sendResponse(responseToUser);
         },
         'YN': () => {
-            let responseToUser = { fulfillmentText: yno[NNG][NNG1][VV]};
+            let responseToUser = { speech: yno[NNG][NNG1][VV]};
             sendResponse(responseToUser);
         },
         
         'default': () => {
-            let responseToUser = { fulfillmentText: '0' };
+            let responseToUser = { speech: '0' };
             sendResponse(responseToUser);
         }
     };
@@ -181,18 +181,18 @@ app.post('/', function (request, response) {
     actionHandlers[action]();
     }
     catch(err) {
-        let responseToUser = { fulfillmentText: '0' };
+        let responseToUser = { speech: '0' };
         sendResponse(responseToUser);
     }
     
     function sendResponse(responseToUser) {
         if (typeof responseToUser === 'string') {
-            let responseJson = { fulfillmentText: responseToUser };
+            let responseJson = { speech: responseToUser };
             response.json(responseJson);
         }
         else {
             let responseJson = {};
-            responseJson.fulfillmentText = responseToUser.fulfillmentText;
+            responseJson.speech = responseToUser.speech;
             if (responseToUser.fulfillmentMessages) {
                 responseJson.fulfillmentMessages = responseToUser.fulfillmentMessages;
             }
