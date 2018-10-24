@@ -154,7 +154,7 @@ app.post('/', function (request, response) {
             sendResponse(responseToUser);
         },
         'why': () => {
-            let responseToUser = { speech: why[NNG][MAG][NNG1]};
+            let responseToUser = { speech: why[NNG][MAG][NNG1][VV]};
             sendResponse(responseToUser);
         },
         'why_neg': () => {
