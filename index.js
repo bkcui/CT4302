@@ -173,10 +173,6 @@ app.post('/', function (request, response) {
     };
     
     
-    if (!actionHandlers[action]) {
-         action = 'default';
-    }
-
     try{
     actionHandlers[action]();
     }
