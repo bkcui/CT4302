@@ -79,26 +79,20 @@ app.post('/', function (request, response) {
     if(JSON.stringify(action) == '"why"'){
       console.log('action == why: \n');
       NNG = request.body.result.parameters['NNG'];
-      MAG = request.body.result.parameters['MAG'];
       NNG1 = request.body.result.parameters['NNG1'];
       VV = request.body.result.parameters['VV'];
     NNG = JSON.stringify(NNG).replace(/\[|\]|"|\s/g, "");
     NNG1 = JSON.stringify(NNG1).replace(/\[|\]|"|\s/g, "");
     VV = JSON.stringify(VV).replace(/\[|\]|"|\s/g, "");
-    MAG = JSON.stringify(MAG).replace(/\[|\]|"|\s/g, "");
       }
     if(JSON.stringify(action) == '"why_neg"'){
       console.log('action == why_neg: \n');
       NNG = request.body.result.parameters['NNG'];
-      MAG = request.body.result.parameters['MAG'];
       NNG1 = request.body.result.parameters['NNG1'];
       VV = request.body.result.parameters['VV'];
-      VXV = request.body.result.parameters['VXV'];
     NNG = JSON.stringify(NNG).replace(/\[|\]|"|\s/g, "");
     NNG1 = JSON.stringify(NNG1).replace(/\[|\]|"|\s/g, "");
     VV = JSON.stringify(VV).replace(/\[|\]|"|\s/g, "");
-    MAG = JSON.stringify(MAG).replace(/\[|\]|"|\s/g, "");
-    VXV = JSON.stringify(VXV).replace(/\[|\]|"|\s/g, "");
       }
     if(JSON.stringify(action) == '"how"'){
       console.log('action == how: \n');
@@ -111,10 +105,8 @@ app.post('/', function (request, response) {
       console.log('action == how_neg: \n');
       NNG = request.body.result.parameters['NNG'];
       VV = request.body.result.parameters['VV'];
-      VXV = request.body.result.parameters['VXV'];
     NNG = JSON.stringify(NNG).replace(/\[|\]|"|\s/g, "");
     VV = JSON.stringify(VV).replace(/\[|\]|"|\s/g, "");
-    VXV = JSON.stringify(VXV).replace(/\[|\]|"|\s/g, "");
       }
     if(JSON.stringify(action) == '"YN"'){
       console.log('action == YN: \n');
@@ -146,7 +138,7 @@ app.post('/', function (request, response) {
             sendResponse(responseToUser);
         },
         'how_neg': () => {
-            let responseToUser = { speech: how_neg[NNG][VV][VXV]};
+            let responseToUser = { speech: how_neg[NNG][VV]};
             sendResponse(responseToUser);
         },
         'what': () => {
@@ -154,11 +146,11 @@ app.post('/', function (request, response) {
             sendResponse(responseToUser);
         },
         'why': () => {
-            let responseToUser = { speech: why[NNG][MAG][NNG1][VV]};
+            let responseToUser = { speech: why[NNG][NNG1][VV]};
             sendResponse(responseToUser);
         },
         'why_neg': () => {
-            let responseToUser = { speech: why_neg[NNG][MAG][NNG1][VV][VXV]};
+            let responseToUser = { speech: why_neg[NNG][NNG1][VV]};
             sendResponse(responseToUser);
         },
         'YN': () => {
