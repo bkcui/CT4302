@@ -71,10 +71,8 @@ app.post('/', function (request, response) {
       console.log('action == what: \n');
       NNG = request.body.result.parameters['NNG'];
       NNG1 = request.body.result.parameters['NNG1'];
-      NP = request.body.result.parameters['NP'];
     NNG = JSON.stringify(NNG).replace(/\[|\]|"|\s/g, "");
     NNG1 = JSON.stringify(NNG1).replace(/\[|\]|"|\s/g, "");
-    NP = JSON.stringify(NP).replace(/\[|\]|"|\s/g, "");
       }
     if(JSON.stringify(action) == '"why"'){
       console.log('action == why: \n');
@@ -142,7 +140,7 @@ app.post('/', function (request, response) {
             sendResponse(responseToUser);
         },
         'what': () => {
-            let responseToUser = { speech: what[NNG][NNG1][NP]};
+            let responseToUser = { speech: what[NNG][NNG1]};
             sendResponse(responseToUser);
         },
         'why': () => {
