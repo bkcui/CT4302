@@ -18,15 +18,15 @@ app.use(bodyParser.urlencoded({ extended: true })); //
 
 
 var fs = require('fs');
-var what = JSON.parse(fs.readFileSync('what.json', 'utf8'));
-var why = JSON.parse(fs.readFileSync('why.json', 'utf8'));
-var why_neg = JSON.parse(fs.readFileSync('why_neg.json', 'utf8'));
-var yno = JSON.parse(fs.readFileSync('YN.json', 'utf8'));
-var how = JSON.parse(fs.readFileSync('how.json', 'utf8'));
-var how_neg = JSON.parse(fs.readFileSync('how_neg.json', 'utf8'));
-var diff = JSON.parse(fs.readFileSync('diff.json', 'utf8'));
+//var what = JSON.parse(fs.readFileSync('what.json', 'utf8'));
+//var why = JSON.parse(fs.readFileSync('why.json', 'utf8'));
+//var why_neg = JSON.parse(fs.readFileSync('why_neg.json', 'utf8'));
+//var yno = JSON.parse(fs.readFileSync('YN.json', 'utf8'));
+//var how = JSON.parse(fs.readFileSync('how.json', 'utf8'));
+//var how_neg = JSON.parse(fs.readFileSync('how_neg.json', 'utf8'));
+//var diff = JSON.parse(fs.readFileSync('diff.json', 'utf8'));
 
-console.log('Answer: ' + yno['북극,남극']['먼저,발견']['됐나']); //// debugging
+//console.log('Answer: ' + yno['북극,남극']['먼저,발견']['됐나']); //// debugging
 
 // app.post('/', function(req, res){
 //   var speech = 
@@ -51,70 +51,70 @@ app.post('/', function (request, response) {
     console.log('request: \n' + JSON.stringify(request.body));
     //var item = req.body.result.parameters['item'];
     
-    var NNG;// = request.body.queryResult.parameters['NNG'];
-    var NNG1;// = request.body.queryResult.parameters['NNG1'];
-    var VXV;// = request.body.queryResult.parameters['VXV'];
-    var VV;//  = request.body.queryResult.parameters['VV'];
-    var MAG;// = request.body.queryResult.parameters['MAG'];
-    var NP;//  = request.body.queryResult.parameters['NP']; //                  here
+    //var NNG;// = request.body.queryResult.parameters['NNG'];
+    //var NNG1;// = request.body.queryResult.parameters['NNG1'];
+    //var VXV;// = request.body.queryResult.parameters['VXV'];
+    //var VV;//  = request.body.queryResult.parameters['VV'];
+    //var MAG;// = request.body.queryResult.parameters['MAG'];
+    //var NP;//  = request.body.queryResult.parameters['NP']; //                  here
     
     let action = (request.body.result.action) ? request.body.result.action: 'default';
 
-    if(JSON.stringify(action) == '"diff"'){
-      console.log('action == diff: \n');
-      NNG = request.body.result.parameters['NNG'];
-      NNG1 = request.body.result.parameters['NNG1'];
-    NNG = JSON.stringify(NNG).replace(/\[|\]|"|\s/g, "");
-    NNG1 = JSON.stringify(NNG1).replace(/\[|\]|"|\s/g, "");
-      }
-    if(JSON.stringify(action) == '"what"'){
-      console.log('action == what: \n');
-      NNG = request.body.result.parameters['NNG'];
-      NNG1 = request.body.result.parameters['NNG1'];
-    NNG = JSON.stringify(NNG).replace(/\[|\]|"|\s/g, "");
-    NNG1 = JSON.stringify(NNG1).replace(/\[|\]|"|\s/g, "");
-      }
-    if(JSON.stringify(action) == '"why"'){
-      console.log('action == why: \n');
-      NNG = request.body.result.parameters['NNG'];
-      NNG1 = request.body.result.parameters['NNG1'];
-      VV = request.body.result.parameters['VV'];
-    NNG = JSON.stringify(NNG).replace(/\[|\]|"|\s/g, "");
-    NNG1 = JSON.stringify(NNG1).replace(/\[|\]|"|\s/g, "");
-    VV = JSON.stringify(VV).replace(/\[|\]|"|\s/g, "");
-      }
-    if(JSON.stringify(action) == '"why_neg"'){
-      console.log('action == why_neg: \n');
-      NNG = request.body.result.parameters['NNG'];
-      NNG1 = request.body.result.parameters['NNG1'];
-      VV = request.body.result.parameters['VV'];
-    NNG = JSON.stringify(NNG).replace(/\[|\]|"|\s/g, "");
-    NNG1 = JSON.stringify(NNG1).replace(/\[|\]|"|\s/g, "");
-    VV = JSON.stringify(VV).replace(/\[|\]|"|\s/g, "");
-      }
-    if(JSON.stringify(action) == '"how"'){
-      console.log('action == how: \n');
-      NNG = request.body.result.parameters['NNG'];
-      VV = request.body.result.parameters['VV'];
-    NNG = JSON.stringify(NNG).replace(/\[|\]|"|\s/g, "");
-    VV = JSON.stringify(VV).replace(/\[|\]|"|\s/g, "");
-      }
-    if(JSON.stringify(action) == '"how_neg"'){
-      console.log('action == how_neg: \n');
-      NNG = request.body.result.parameters['NNG'];
-      VV = request.body.result.parameters['VV'];
-    NNG = JSON.stringify(NNG).replace(/\[|\]|"|\s/g, "");
-    VV = JSON.stringify(VV).replace(/\[|\]|"|\s/g, "");
-      }
-    if(JSON.stringify(action) == '"YN"'){
-      console.log('action == YN: \n');
-      NNG = request.body.result.parameters['NNG'];
-      NNG1 = request.body.result.parameters['NNG1'];
-      VV = request.body.result.parameters['VV'];
-    NNG = JSON.stringify(NNG).replace(/\[|\]|"|\s/g, "");
-    NNG1 = JSON.stringify(NNG1).replace(/\[|\]|"|\s/g, "");
-    VV = JSON.stringify(VV).replace(/\[|\]|"|\s/g, "");
-    }
+    //if(JSON.stringify(action) == '"diff"'){
+    //  console.log('action == diff: \n');
+    //  NNG = request.body.result.parameters['NNG'];
+    //  NNG1 = request.body.result.parameters['NNG1'];
+    //NNG = JSON.stringify(NNG).replace(/\[|\]|"|\s/g, "");
+    //NNG1 = JSON.stringify(NNG1).replace(/\[|\]|"|\s/g, "");
+    //  }
+    //if(JSON.stringify(action) == '"what"'){
+    //  console.log('action == what: \n');
+    //  NNG = request.body.result.parameters['NNG'];
+    //  NNG1 = request.body.result.parameters['NNG1'];
+    //NNG = JSON.stringify(NNG).replace(/\[|\]|"|\s/g, "");
+    //NNG1 = JSON.stringify(NNG1).replace(/\[|\]|"|\s/g, "");
+    //  }
+    //if(JSON.stringify(action) == '"why"'){
+    //  console.log('action == why: \n');
+    //  NNG = request.body.result.parameters['NNG'];
+    //  NNG1 = request.body.result.parameters['NNG1'];
+    //  VV = request.body.result.parameters['VV'];
+    //NNG = JSON.stringify(NNG).replace(/\[|\]|"|\s/g, "");
+    //NNG1 = JSON.stringify(NNG1).replace(/\[|\]|"|\s/g, "");
+    //VV = JSON.stringify(VV).replace(/\[|\]|"|\s/g, "");
+    //  }
+    //if(JSON.stringify(action) == '"why_neg"'){
+    //  console.log('action == why_neg: \n');
+    //  NNG = request.body.result.parameters['NNG'];
+    //  NNG1 = request.body.result.parameters['NNG1'];
+    //  VV = request.body.result.parameters['VV'];
+    //NNG = JSON.stringify(NNG).replace(/\[|\]|"|\s/g, "");
+    //NNG1 = JSON.stringify(NNG1).replace(/\[|\]|"|\s/g, "");
+    //VV = JSON.stringify(VV).replace(/\[|\]|"|\s/g, "");
+    //  }
+    //if(JSON.stringify(action) == '"how"'){
+    //  console.log('action == how: \n');
+    //  NNG = request.body.result.parameters['NNG'];
+    //  VV = request.body.result.parameters['VV'];
+    //NNG = JSON.stringify(NNG).replace(/\[|\]|"|\s/g, "");
+    //VV = JSON.stringify(VV).replace(/\[|\]|"|\s/g, "");
+    //  }
+    //if(JSON.stringify(action) == '"how_neg"'){
+    //  console.log('action == how_neg: \n');
+    //  NNG = request.body.result.parameters['NNG'];
+    //  VV = request.body.result.parameters['VV'];
+    //NNG = JSON.stringify(NNG).replace(/\[|\]|"|\s/g, "");
+    //VV = JSON.stringify(VV).replace(/\[|\]|"|\s/g, "");
+    //  }
+    //if(JSON.stringify(action) == '"YN"'){
+    //  console.log('action == YN: \n');
+    //  NNG = request.body.result.parameters['NNG'];
+    //  NNG1 = request.body.result.parameters['NNG1'];
+    //  VV = request.body.result.parameters['VV'];
+    //NNG = JSON.stringify(NNG).replace(/\[|\]|"|\s/g, "");
+    //NNG1 = JSON.stringify(NNG1).replace(/\[|\]|"|\s/g, "");
+    //VV = JSON.stringify(VV).replace(/\[|\]|"|\s/g, "");
+    //}
     
     
     //NNG = JSON.stringify(NNG).replace(/\[|\]|"|\s/g, "");
@@ -127,39 +127,55 @@ app.post('/', function (request, response) {
     
     
     const actionHandlers = {
-        'diff': () => {
-            let responseToUser = { speech: diff[NNG][NNG1]};
-            sendResponse(responseToUser);
-        },
-        'how': () => {
-            let responseToUser = { speech: how[NNG][VV]};
-            sendResponse(responseToUser);
-        },
-        'how_neg': () => {
-            let responseToUser = { speech: how_neg[NNG][VV]};
-            sendResponse(responseToUser);
-        },
         'what': () => {
-            let responseToUser = { speech: what[NNG][NNG1]};
+            let responseToUser = { speech: 'what'};
             sendResponse(responseToUser);
         },
-        'why': () => {
-            let responseToUser = { speech: why[NNG][NNG1][VV]};
+        'who': () => {
+            let responseToUser = { speech: 'who'};
             sendResponse(responseToUser);
         },
-        'why_neg': () => {
-            let responseToUser = { speech: why_neg[NNG][NNG1][VV]};
+        'where': () => {
+            let responseToUser = { speech: 'where'};
             sendResponse(responseToUser);
         },
-        'YN': () => {
-            let responseToUser = { speech: yno[NNG][NNG1][VV]};
+        'when': () => {
+            let responseToUser = { speech: 'when'};
             sendResponse(responseToUser);
         },
-        
-        'default': () => {
-            let responseToUser = { speech: '0' };
-            sendResponse(responseToUser);
-        }
+        //'diff': () => {
+        //    let responseToUser = { speech: diff[NNG][NNG1]};
+        //    sendResponse(responseToUser);
+        //},
+        //'how': () => {
+        //    let responseToUser = { speech: how[NNG][VV]};
+        //    sendResponse(responseToUser);
+        //},
+        //'how_neg': () => {
+        //    let responseToUser = { speech: how_neg[NNG][VV]};
+        //    sendResponse(responseToUser);
+        //},
+        //'what': () => {
+        //    let responseToUser = { speech: what[NNG][NNG1]};
+        //    sendResponse(responseToUser);
+        //},
+        //'why': () => {
+        //    let responseToUser = { speech: why[NNG][NNG1][VV]};
+        //    sendResponse(responseToUser);
+        //},
+        //'why_neg': () => {
+        //    let responseToUser = { speech: why_neg[NNG][NNG1][VV]};
+        //    sendResponse(responseToUser);
+        //},
+        //'YN': () => {
+        //    let responseToUser = { speech: yno[NNG][NNG1][VV]};
+        //    sendResponse(responseToUser);
+        //},
+        //
+        //'default': () => {
+        //    let responseToUser = { speech: '0' };
+        //    sendResponse(responseToUser);
+        //}
     };
     
     
@@ -167,7 +183,7 @@ app.post('/', function (request, response) {
     actionHandlers[action]();
     }
     catch(err) {
-        let responseToUser = { speech: '0' };
+        let responseToUser = { speech: 'error' };
         sendResponse(responseToUser);
     }
     
